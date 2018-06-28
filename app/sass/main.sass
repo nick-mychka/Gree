@@ -1,0 +1,837 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	height: 100vh
+	min-height: 625px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	input, textarea
+			border: #666 1px solid
+			outline: none
+
+
+/* ............. common styles ................ */
+
+.wrap
+	display: flex
+	width: 100%
+	max-width: 1400px
+	height: 100%
+	margin: 0 auto
+
+section
+	width: 100%
+	height: 100%
+	background-color: $black
+
+.left, 
+.right
+	position: relative
+	height: 100%
+
+.left
+	width: 30%
+	background-color: $accent
+	
+.right
+	width: 70%
+	background-color: #fff
+	box-shadow: -1px 0px 20px 5px rgba(33,33,33,0.05)
+
+a 
+	text-decoration: none
+	color: #fff
+	&:hover
+		text-decoration: none
+		color: #fff
+
+.btn
+	display: inline-block
+	width: 155px
+	height: 50px
+	line-height: 50px
+	text-align: center
+	font-weight: 900
+
+
+.h1,
+.h2
+	font-size: 28px
+	margin-bottom: 30px
+	line-height: 1
+	font-family: "PlayfairDisplay"
+	font-weight: 700
+
+.logo
+	position: absolute
+	display: inline-block
+	width: 196px
+	height: 69px
+	top: 0
+	left: 0
+	z-index: 100
+
+.black-line
+	position: relative
+	width: 100%
+	height: 69px
+	overflow-y: hidden
+	background-color: $black
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background-color: rgba(0,0,0, 0.8)
+
+.black-line-bottom
+	position: absolute
+	left: 0
+	bottom: 0
+	
+.pagination
+	position: absolute
+	left: 0
+	bottom: 0
+	width: 69px
+	height: 69px
+	text-align: center
+	line-height: 70px
+	background-color: #fff
+	font-family: "GillSans"
+	z-index: 2
+	span
+		font-weight: 700
+		font-size: 30px
+
+.hamburger
+	display: flex
+	position: absolute
+	top: 0
+	right: 0
+	width: 69px
+	height: 69px
+	background-color: $accent
+	z-index: 2
+
+.hamburger-box
+	margin: auto
+
+.nav-list
+	width: 190px
+	display: none
+	position: absolute
+	top: 80px
+	right: 25px
+	padding: 0
+	margin: 0
+	text-align: right
+	background-color: rgba(255,255,255,0.9)
+	z-index: 100
+	li
+		width: 100%
+		position: relative
+		list-style-type: none
+		margin: 5px 0
+		z-index: 2
+		&::after
+			content: ""
+			position: absolute
+			width: 10px
+			height: 10px
+			background-color: $accent
+			right: 0
+			bottom: 13px
+			transition: width 0.5s ease
+			z-index: -1
+		&:hover::after
+			width: 100%
+		&:nth-child(2)
+			&::after
+				background-color: $blue
+		&:nth-child(3)
+			&::after
+				background-color: $purple
+		&:nth-child(4)
+			&::after
+				background-color: $red
+
+	a
+		display: block
+		width: 100%
+		padding: 7px 17px 5px 0
+		color: $black
+		font-family: "PlayfairDisplay"
+		font-weight: 400
+		z-index: 3
+
+		&.active
+			font-weight: 600
+			&::after
+				content: ""
+				position: absolute
+				width: 100%
+				height: 10px
+				background-color: $accent
+				right: 0
+				bottom: 13px
+				transition: width 0.5s ease
+				z-index: -1
+
+.navigation
+	position: absolute
+	display: flex
+	width: 140px
+	height: 69px
+	right: 0
+	bottom: 0
+	border: 1px solid $accent
+	overflow-y: hidden
+	z-index: 5
+		
+.nav-btn
+	width: 69px
+	height: 69px
+	background-color: rgba(255,255,255, 0.7)
+	background-image: url(../img/main/arrow/arr-up.svg)
+	background-repeat: no-repeat
+	background-position: 50% 50%
+	background-size: 18px 22px
+	transform: translate(50% 50%)
+
+.nav-btn-inner
+	display: inline-block
+	width: 69px
+	height: 69px
+
+.arr-up
+	border-right: none
+
+.arr-down
+	border-color: $accent
+	background-image: url(../img/main/arrow/arr-up-accent.svg)
+	transform: rotate(180deg)
+
+.inner-composition
+	display: flex
+	margin:
+		top: 10vh
+		left: -210px
+	padding: 
+		left: 15px
+		right: 15px
+	max-width: 961px
+
+
+/* ............. first section Home ................ */
+
+.s-welcome_01
+	.black-line
+		background-image: url(../img/main/article-01/6.jpg)
+		background-repeat: no-repeat
+		background-position: 0 -85px
+
+	.black-line-bottom
+		background-position: -185px -100px
+
+	.btn
+		background-color: $accent
+		margin-top: 20px
+	
+	.right
+		.hero-img-composition
+			position: relative
+			display: inline-block
+			max-width: 493px
+			align-self: flex-start
+			z-index: 2
+			&::before
+				position: absolute
+				left: -8%
+				top: 9%
+				content: ""
+				width: 76%
+				height: 103%
+				background-color: $blue
+				background-size: 374px 312px
+				z-index: -1
+
+		.home-img
+			display: block
+			position: relative
+			top: 0
+			left: 0
+			width: 100%
+			z-index: 2
+
+		.hero-text-composition
+			position: relative
+			display: inline-block
+			max-width: 425px
+			padding: 
+				top: 30px
+				left: 25px
+			z-index: 3
+
+			.border-decoration
+				position: relative
+				width: 100%
+				&:after
+					content: ''
+					position: absolute
+					top: 0
+					left: -65px
+					width: 101px
+					height: 3px
+					background-color: $blue
+					z-index: 3
+
+			.description
+				background-color: rgba(255,255,255, 0.9)
+				padding: 
+					top: 30px
+					bottom: 20px
+
+		.blue-circle
+			position: absolute
+			max-width: 164px
+			right: 0
+			bottom: 17vh
+			z-index: 2
+			&::after
+				content: ""
+				position: absolute
+				right: 0
+				bottom: -20px
+				width: 184px
+				height: 133px
+				background-image: url(../img/main/article-01/4.png)
+				background-repeat: no-repeat
+				background-size: 184px 133px
+				z-index: -1
+
+		.girl-img
+			position: absolute
+			bottom: 0
+			left: -36px
+
+		.home-bg
+			display: block
+			margin-top: -60px
+			width: 100%
+			height: 200px
+			background-image: url(../img/main/home.svg)
+			background-repeat: no-repeat
+			background-position: 100px 0
+
+
+/* ............. second section Gain ................ */
+
+.s-gain_02
+	.wrap
+		overflow: hidden
+	.black-line
+		background-image: url(../img/main/article-02/bg_up_down.jpg)
+		background-repeat: no-repeat
+		background-position: 0 0px
+
+	.black-line-bottom
+		background-position: -100px -210px
+
+	.nav-list
+		a
+			&.active
+				&::after
+					background-color: $blue
+
+	.left
+		background-color: $blue
+
+	.hamburger
+		background-color: $blue
+
+	.navigation
+		border-color: $blue
+
+	.nav-btn
+		background-image: url(../img/main/arrow/arr-up-blue.svg)
+
+	.right
+
+		.inner-composition
+			justify-content: space-around
+			margin:
+				top: 7vh
+				left: -150px
+
+		.bg-item
+			position: relative
+			width: 231px
+			height: 218px
+			background-color: $purple
+			text-align: center
+			line-height: 218px
+			transition: all 0.5s ease
+			&:before
+				content: '1.'
+				position: absolute
+				left: -26px
+				top: 145px
+				font-size: 60px
+				line-height: 1
+				font-family: "PlayfairDisplay"
+				font-weight: 400
+				z-index: 10
+			&:nth-child(2)
+				background-color: $red
+				&:before
+					content: '2.'
+				.h2
+					&:after
+						background-color: $accent
+			&:nth-child(3)
+				background-color: $accent
+				&:before
+					content: '3.'
+				.h2
+					&:after
+						background-color: $red
+
+		.img-hover
+			display: none
+			position: absolute
+			top: -45px
+			left: -45px
+
+		.hidden-adv
+			width: 225px
+			display: none
+			position: absolute
+			bottom: 15px
+			right: 30px
+			line-height: 1.65
+			.h2
+				padding: 30px 0
+				margin-bottom: 0
+				position: relative
+				text-align: left
+				&:after
+					content: ''
+					position: absolute
+					bottom: 0
+					left: -29px
+					width: 58px
+					height: 3px
+					background-color: $blue
+			p
+				margin-top: 29px		
+
+		.gain
+			margin: 7vh auto 0
+			padding: 
+				right: 15px 
+				left: 60px
+			background-image: url(../img/main/gain.svg)
+			background-repeat: no-repeat
+			background-position: 60% 0
+			.h2
+				padding: 30px 0
+				margin-bottom: 0
+				position: relative
+				&:after
+					content: ''
+					position: absolute
+					bottom: 0
+					left: -29px
+					width: 58px
+					height: 3px
+					background-color: $purple
+
+			.gain-desc
+				padding-top: 29px
+				margin-bottom: 0
+				max-width: 485px
+
+
+/* ............. third section Gree ................ */
+
+.s-Gree_03
+	.black-line
+		background-image: url(../img/main/article-03/bg_up.jpg)
+		background-repeat: no-repeat
+		background-position: 0 0px
+
+	.black-line-bottom
+		background-image: url(../img/main/article-03/bg_down.jpg)
+		background-position: -40px -48px
+
+	.nav-list
+		a
+			&.active
+				&::after
+					background-color: $purple
+
+	.left
+		background-color: $purple
+
+	.hamburger
+		background-color: $purple
+	
+	.navigation
+		border-color: $purple
+
+	.nav-btn
+		background-image: url(../img/main/arrow/arr-up-purple.svg)
+	
+	.right
+		.h1
+			margin:
+				top: 12px
+				bottom: 40px
+			font-size: 26px
+
+		.inner-composition
+			justify-content: space-between
+			margin:
+				top: 6vh
+				left: -250px
+			max-width: 1125px
+
+		.carousel-wrap
+			position: relative
+		.price-wrap
+			position: absolute
+			right: -60px
+			top: 10px
+			z-index: 10
+			&::after
+				content: ""
+				position: absolute
+				top: -20px
+				left: -12px
+				width: 102px
+				height: 102px
+				border-radius: 50%
+				background-color: $red
+				z-index: -1
+			.old-price
+				color: #fff
+				font-size: 12px
+				span
+					font-size: 16px
+			.discount-price
+				margin-left: -32px
+				color: #282b42
+				font-size: 20px
+				font-weight: 600
+				span
+					font-size: 30px
+
+		.btn-order-blue
+			background-color: $accent
+			margin: 65px 0 0 125px
+			width: 210px
+			height: 57px
+			font-size: 20px
+			line-height: 57px
+
+		.condi-carousel
+			width: 420px
+			height: auto
+			&::before
+				position: absolute
+				left: 60px
+				top: 10px
+				content: ''
+				width: 395px
+				height: 272px
+				background-color: #fff
+			.owl-nav
+				position: absolute
+				bottom: 0
+				width: 100%
+				> div
+					position: absolute
+					padding: 0 4%
+					transition: opacity .25s ease
+					img
+						width: 20px
+						height: auto
+						opacity: 1
+
+				.owl-prev
+					left: 45px
+
+				.owl-next
+					right: -45px
+
+		.wrapper_tab
+			position: relative
+
+			.tabs
+				position: absolute
+				transform: rotate(-90deg)
+				left: -140px
+				top: 40%
+
+			.tab
+				cursor: pointer
+				padding-left: 15px
+				transition: text-shadow .25s ease
+				&.active
+					text-shadow: -0.5px -0.5px 0 $black, 0.5px -0.5px 0 $black
+
+		.tab_content
+			width: 570px
+			height: 330px
+			padding: 7px 0
+			background-color: #fff
+			box-shadow: -1px -1px 12px 4px rgba(199,204,219,0.05)
+			font-size: 14px
+			border-right: 7px
+		
+		.table-wrap
+			display: flex
+
+		.table
+			padding: 
+				left: 17px
+				right: 12px
+			&.table-right
+				border-left: 1px solid $purple
+				padding: 
+					left: 9px
+					right: 17px 
+			tr 
+				td
+					padding-left: 5px
+					&:nth-child(2)
+						text-align: right
+				th
+					padding: 25px 0 5px
+
+				.th-first
+					padding-top: 5px
+
+		.description-list
+			text-align: center
+			list-style-type: none
+			line-height: 2.5
+			padding: 3px 25px
+
+			li
+				position: relative
+				cursor: help
+				&::after
+					content: "Активация этого режима нужна для интенсивного охлаждения или обогрева помещения до желаемой температуры."
+					position: absolute
+					width: 100%
+					padding: 7px 25px
+					top: 100%
+					left: 0
+					height: auto
+					line-height: 1.5
+					border: 1px solid $purple
+					background-color: #fff
+					transition: all .25s ease
+					opacity: 0
+				&:hover
+					text-shadow: -0.5px -0.5px 0 $black, 0.5px -0.5px 0 $black
+
+				&:hover::after
+					opacity: 1
+					z-index: 10
+					text-shadow: none
+
+		.gree-bg
+			display: block
+			margin-top: -145px
+			width: 100%
+			height: 200px
+			background-image: url(../img/main/gree.svg)
+			background-repeat: no-repeat
+			background-position: 50px 0
+
+
+/* ............. fourth section Home ................ */
+.s-call_04
+	.wrap
+		overflow: hidden
+	
+	.navigation
+		border-color: $accent
+
+	.arr-down
+		background-image: url(../img/main/arrow/arr-up.svg)
+
+	.arr-up
+		background-image: url(../img/main/arrow/arr-up-accent.svg)
+
+	.black-line
+		background-image: url(../img/main/article-04/bg_up_down.jpg)
+		background-repeat: no-repeat
+		background-position: 0 bottom
+
+	.black-line-bottom
+		background-position: 40px -30px
+
+	.nav-list
+		a
+			&.active
+				&::after
+					background-color: $red
+
+	.left-item-img
+		position: absolute
+		bottom: 47vh
+		left: 0
+
+	.right
+		
+		.call-bg
+			position: relative
+			width: 100%
+			height: 200px
+			margin: 25px auto 0
+			background-image: url(../img/main/call.svg)
+			background-repeat: no-repeat
+			background-position: 80% 0
+			.call-bg-top-img,
+			.circle-cover
+				position: absolute
+				top: -94px
+				left: 40%
+
+			.circle-cover
+				top: -65px
+				left: 38%
+
+		.inner-composition		
+			margin-top: -33px
+			justify-content: center
+			align-items: flex-end
+		.sales-r-img
+			display: flex
+			max-width: 376px
+			padding: 47px 64px 0
+			height: auto
+			background-color: $blue
+			justify-content: center
+			z-index: 2
+			img
+				width: 100%
+				align-self: flex-end
+	
+		.h2
+			padding: 0 0 30px
+			margin-bottom: 0
+			position: relative
+			&:after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: -55px
+				width: 90px
+				height: 3px
+				background-color: $accent
+				z-index: 5
+
+		.contact-wrap
+			padding-left: 30px
+			z-index: 3
+
+		.contact-info,
+		.footer-info
+			display: flex 
+			justify-content: space-evently
+
+		.contact-info
+			padding-top: 30px
+			margin-bottom: 70px
+
+		.footer-info,
+		.contact-address
+			margin-left: -50px
+			a 
+				color: $black
+				&:hover, &:focus
+					color: $black
+
+			a.kondi
+				text-decoration: underline
+				&:hover, &:focus
+					text-decoration: underline
+			a.social-icon
+				display: inline-block
+				margin-right: 10px
+				padding: 7px
+				transition: opacity 0.25s ease
+				&:hover
+					opacity: 0.9
+				&:last-child
+					margin-right: 0
+
+
+		.contact-phone
+			padding-left: 25px
+
+		.h3
+			padding-bottom: 10px
+		
+		.sales-r
+			background-color: $accent
+			padding: 10px 0 7px
+			.h3
+				margin: 0
+				
+		.contact-address,
+		.sales-r
+			width: 310px
+			padding-left: 50px
+
+		.copyright
+			width: 245px
+			font-size: 14px
+			padding: 10px 0 7px 25px
+			line-height: 2
+
+i.fa-heart
+	transition: color 0.25s ease
+	&:hover
+		color: #ff4d4d
+		animation: pulse-heart 1s ease
+		animation-delay: 300ms
+
+@keyframes pulse-heart
+	0%
+		transform: scale(1)
+	25%
+		transform: scale(1.3)
+	50%
+		transform: scale(1)
+	75%
+		transform: scale(1.3)
+	100%
+		transform: scale(1)
+
+
+
+@import "media" // Always at the end
